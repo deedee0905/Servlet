@@ -16,7 +16,7 @@
 			sum += scores[i];
 		}
 		
-		double average = sum / scores.length;
+		double average = sum / (double)scores.length;
 		
 		%>
 	
