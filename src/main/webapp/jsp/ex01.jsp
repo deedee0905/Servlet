@@ -41,20 +41,19 @@
 	<h3><%= animals.get(1) %></h3>
 
 
-	<%
-		//멤버변수
+	<!--  -->
+	<%!
+		// 멤버변수 
 		private int number = 100;
 	
-		//메소드
-		// hello world를 리턴하는 메소드 만들기
+		// 메소드 
+		// hello world를 리턴하는 메소드 
 		public String getHelloWorld() {
-			return "Hello World";
+			return "hello world";
 		}
-		
 	%>
 	
 	<h3><%= getHelloWorld() %></h3>
-
 	
 	
 

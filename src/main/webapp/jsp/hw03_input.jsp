@@ -15,15 +15,17 @@
 
 <body>
 	
-	<form method="get" action="/jsp/hw03.jsp">
-		<div>
+	
+		<div class="container">
+		
 			<h2>날짜, 시간 링크</h2>
-			<div class="d-flex m-1">
-				<div class="bg-primary col-1 row-1"><a class="text-white" href="/jsp/hw03.jsp?what=time">현재 시간 확인</a></div>
-				<div class="bg-success ml-1 col-1 row-1"><a class="text-white" href="/jsp/hw03.jsp?what=date">현재 날짜 확인</a></div>
-			</div>
+			
+			
+				<a class="text-white btn btn-info col-3 " href="/jsp/hw03.jsp?what=time">현재 시간 확인</a>
+				<a class="btn btn-primary col-3 ml-1 text-white" href="/jsp/hw03.jsp?what=date">오늘 날짜 확인</a>
+			
 		</div>
-	</form>
+	
 
 </body>
 </html>
