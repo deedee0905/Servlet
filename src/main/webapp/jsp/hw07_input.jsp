@@ -17,8 +17,8 @@
 		<div class="container">
 			<label class="display-4 text-bold mb-2">메뉴검색</label>
 			<div class="d-flex align-items-end">
-				<input type="text" class="form-control col-2" name="menu">
-				<label class="ml-2">4점 이하 제외<input type="checkbox" name="condition" value="point"></label>
+				<input type="text" class="form-control col-3" name="menu">
+				<label class="ml-2">4점 이하 제외<input type="checkbox" name="pointFilter" value="true"></label>
 			</div>
 			<button type="submit" class="btn btn-success mt-1">검색</button>
 		</div>

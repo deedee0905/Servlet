@@ -51,6 +51,61 @@
 		
 		
 	</div>
+	
+	<!-- 선생님 코드
+	
+	 **자바코드~
+	 
+	 	List<String> goodsList = Arrays.asList(new String[]{ 
+		    "저지방 우유", "요플레 4개", "딸기 1팩", "삼겹살 300g", "생수 6개", "주방 세제"
+		});
+		
+	 **~자바코드
+	
+	
+	<div class="container">
+		<h1 class="text-center">장목록</h1>
+		
+		<table class="table text-center">
+		
+			<thead>
+				<tr>번호</tr>
+				<th>품목</th>
+			</thead>
+			
+			<tbody>
+			
+			 **자바코드~ for(int i = 0; i < goodsList.size(); i++) { **자바코드
+			 
+			
+				<tr>
+					<td>1</td>
+					<td>*자바코드 goodsList.get(i)</td>
+				</tr>
+				
+				<tr>
+					<td>2</td>
+					<td>요플레 4개</td>
+				</tr>
+				
+				**자바코드~ } **~자바코드
+			</tbody>
+		
+		
+		</table>
+	
+	
+	
+	
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	 -->
 
 
 

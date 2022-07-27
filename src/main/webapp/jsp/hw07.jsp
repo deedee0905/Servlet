@@ -11,7 +11,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>배탈의 민족</title>
 </head>
 <body>
 
@@ -31,23 +31,70 @@
 	    list.add(map);
 	    map = new HashMap<String, Object>() {{ put("name", "반올림피자"); put("menu", "피자"); put("point", 4.3); } };
 	    list.add(map);
+	    
+	    String keyword = request.getParameter("menu");
+	    
+	    String searchMenu = request.getParameter("menu");
 	
-	
+		String pointFilter = request.getParameter("pointFilter");
 	
 	%>
 	
-	<table>
-		<td>
-			<span class="display-4 text-bold text-center"><tr>검색 결과</tr></span>
-		</td>
-		
-		<td>
-			<span class="text-bold"><tr>메뉴</tr></span>
-			<span class="text-bold"><tr>상호</tr></span>
-			<span class="text-bold"><tr>별점</tr></span>
-		</td>
-		
+	<div class="container">
 	
+		<h1 class="text-center">검색 결과</h1>
+		
+		<table class="text-center table">
+			<thead>
+				<tr>
+					<th>메뉴</th>
+					<th>가게</th>
+					<th>별점</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+			<% for(Map<String, Object> store : list) { 
+				
+				if(searchMenu.equals(store.get("menu"))){
+					
+					//포인트를 오브젝트 -> 더블 형태로 형변환 하기 (방법 2가지)
+					//Double point =  (Double)store.get("point");
+					double point = (Double)store.get("point");
+					
+					// 포인트필터가 체크되어있지 않으면 보여죠
+					// 포인트필터가 선택되었고, 현재 맵의 포인트가 4.0 이상이면 보여죠
+					//if(pointFilter == null || point >= 4.0) {
+						
+					// 포인트필터가 선택되어 있고, 4.0 미만이면 보여주지마세요
+					if(pointFilter != null && point < 4.0) {
+						continue;
+					}
+				
+			%>
+			
+			
+				<tr>
+					<td><%= store.get("menu") %></td>
+					<td><%= store.get("name") %></td>
+					<td><%= store.get("point") %></td>
+				</tr>
+				
+				<% // } 
+					} 
+				} %>
+			</tbody>
+			
+		
+		
+		</table>
+	
+	
+	
+	</div>
+	
+	
+
 	
 	
 	</table>
