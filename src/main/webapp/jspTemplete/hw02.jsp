@@ -12,7 +12,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>멜롱</title>
 </head>
 <body>
 
@@ -100,30 +100,12 @@
 
 
 	<div class="container">
-		<header>
-			<div class="d-flex">
-				<div class="display-4 text-success">Melong</div>
-
-				<div class="input-group ml-3"> 
-					 <input type="text" class="form-control">
-					 <div class="input-group-append">
-					    <button class="btn btn-success" type="button">검색</button>
-					 </div>
-				</div>
-				
-			</div>
 		
-		</header>
+		<jsp:include page="melong_header.jsp" />
+		
+		<jsp:include page="melong_nav.jsp" />
 	
-		<nav class="mt-3">
-			<ul class="nav">
-				<li class="nav-items "><a class="nav-link">멜롱차트</a></li>
-				<li class="nav-items ml-4"><a class="nav-link text-dark font-weight-bold">최신음악</a></li>
-				<li class="nav-items ml-4"><a class="nav-link text-dark font-weight-bold">장르음악</a></li>
-				<li class="nav-items ml-4"><a class="nav-link text-dark font-weight-bold">멜롱DJ</a></li>
-				<li class="nav-items ml-4"><a class="nav-link text-dark font-weight-bold">뮤직어워드</a></li>
-			</ul>
-		</nav>
+		
 	
 		<section>
 		
