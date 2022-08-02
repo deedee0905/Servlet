@@ -6,7 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class MysqulService {
+public class MysqlService {
+	
+	private static MysqlService mysqlSerive = null;
 	
 	// url, userId, password
 	
@@ -15,6 +17,15 @@ public class MysqulService {
 	private final String password ="mycording123!";
 	private Connection connection;
 	private Statement statement;
+	
+	// 객체를 얻어갈 수 있는 메소드
+	public static MysqlService getInstance() {
+	if(mysqlSerive == null) {
+		mysqlSerive = new MysqlService();
+	}
+	return mysqlSerive;
+	
+	}
 	
 	
 	// 접속기능, (select 쿼리 수행기능) (insert update delete 쿼리 수행기능), 접속해제 기능

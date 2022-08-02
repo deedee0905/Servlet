@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.amita.servlet.common.MysqulService;
+import com.amita.servlet.common.MysqlService;
 
 @WebServlet("/db/ex01")
 public class DBEx01Controller extends HttpServlet {
@@ -23,7 +23,7 @@ public class DBEx01Controller extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		
-		MysqulService mysqlService = new MysqulService();
+		MysqlService mysqlService = MysqlService.getInstance();
 		
 		mysqlService.connect();
 		String selectQuery = "SELECT * FROM `used_goods`;";
@@ -103,5 +103,5 @@ public class DBEx01Controller extends HttpServlet {
 //		
 //	}
 	
-
-}
+	 } 
+	}
