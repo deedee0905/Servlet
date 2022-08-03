@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.amita.servlet.common.MysqlService" %>   
-<%@ page import="java.sql.ResultSet" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,49 +10,35 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>즐겨찾기 추가</title>
 </head>
 <body>
 
-	<% 
-	 	MysqlService mysqlservice = MysqlService.getInstance();
-		mysqlservice.connect();
-		
-		String query = "SELECT * FROM `favorite` ORDER BY `id` DESC;";
-		
-		ResultSet resultSet = mysqlservice.select(query);
-		
-		
-
-	%>
-	
-	
 	<div class="container">
-		<table class="table">
-				<thead class="text-center">
-					<tr class="font-weight-bold">
-						<th>사이트</th>
-						<th>사이트 주소</th>
-						<th>삭제</th>
-					</tr>
-				</thead>
-				
-				<tbody>
-				<% while(resultSet.next()) { %>
-					<tr class="text-center">
-						<td><%= resultSet.getString("name") %></td>
-						<td><a href="/ret/hw02_input.jsp"<%= resultSet.getString("url") %>"><%= resultSet.getString("url") %></a></td>
-						
-					</tr>
-					
-					<% } %>
-				</tbody>
-
-		</table>
+		<form method="post" action="/ret/hw02/insert">
+			<div>
+				<h1 class="mt-2">즐겨찾기 추가</h1>
+			</div>
+			
+			<div>
+			<label>사이트명:</label> <br>
+			<input type="text" class="form-control col-3" name="site">
+			</div>
+			
+			<div>
+			<label>사이트 주소:</label> <br>
+			<input type="text" class="form-control col-5" name="url">
+			</div>
+			
+			<button type="submit" class="btn btn-success mt-3" >추가</button>
+		</form>
+		
+		
+		
+		
+	
 	
 	</div>
-	
-
 
 </body>
 </html>

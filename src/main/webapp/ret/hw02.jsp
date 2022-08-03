@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.amita.servlet.common.MysqlService" %>   
-<%@ page import="java.sql.ResultSet" %> 
+<%@ page import="com.amita.servlet.common.MysqlService" %>
+<%@ page import="java.sql.ResultSet" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,45 +16,53 @@
 </head>
 <body>
 
-	<% 
-	 	MysqlService mysqlservice = MysqlService.getInstance();
+	<%
+		MysqlService mysqlservice = MysqlService.getInstance();
 		mysqlservice.connect();
 		
 		String query = "SELECT * FROM `favorite` ORDER BY `id` DESC;";
 		
 		ResultSet resultSet = mysqlservice.select(query);
 		
-		
-
+	
+	
+	
 	%>
-	
-	
+
 	<div class="container">
-		<table class="table">
-				<thead class="text-center">
-					<tr class="font-weight-bold">
+		
+			<table class="table">
+				<thead class="font-weight-bold text-center m-3">
+					<tr>
 						<th>사이트</th>
 						<th>사이트 주소</th>
-						<th>삭제</th>
+						<th></th>
 					</tr>
 				</thead>
 				
 				<tbody>
-				<% while(resultSet.next()) { %>
+					<% while(resultSet.next()){ %>
 					<tr class="text-center">
 						<td><%= resultSet.getString("name") %></td>
-						<td><a href="/ret/hw02_input.jsp"<%= resultSet.getString("url") %>"><%= resultSet.getString("url") %></a></td>
-						
+						<td><a href="<%= resultSet.getString("url") %>"><%= resultSet.getString("url") %></a></td>
+						<td><a class="btn btn-danger btn-sm" href="/ret/hw02/delete?id=<%= resultSet.getInt("id") %>">삭제</a></td>
 					</tr>
 					
+					
 					<% } %>
+					
+					<tr>
+						<td><a href="/ret/hw02_input.jsp" class="mt-3 btn btn-success">사이트 추가</a></td>
+					</tr>
+					
+					
 				</tbody>
-
-		</table>
+			
+			</table>
+		
+	
 	
 	</div>
-	
-
 
 </body>
 </html>
