@@ -15,30 +15,56 @@ public class DBEx02InsertController extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
+		
 		//이름, 생년월일, 자기소개, 이메일
 		String name = request.getParameter("name");
 		String birthDay = request.getParameter("birthday");
 		String introduce = request.getParameter("introduce");
 		String email = request.getParameter("email");
 		
-	
+		
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connect();
 		
 		String query = "INSERT INTO `new_user`\r\n"
 				+ "(`name`, `userId`, `yyyymmdd`, `introduce`, `email`, `createdAt`, `updatedAt`)\r\n"
-				+ "VALUES\r\n"
-				+ "('우영우', 'ooh', '20010312', '우영우 기러기 스위스', 'ooh@gmail.com', now(), now());";
+				+ "VALUE\r\n"
+				+ "('"+ name + "', 'JEAdragon', '"+ birthDay + "', '" + introduce +"', '" + email +"', now(), now());";
 		
-		int count = mysqlService.update(query);
-		
+		int count =  mysqlService.update(query);
 		
 		mysqlService.disConnect();
 		
 		// 페이지를 리스트 페이지로 이동한다.
-		//redirect
+		// redirect
 		
-		response.sendRedirect("/db/ex02.jsp");
+		response.sendRedirect("/ret/ret01.jsp");
+		
+		
+		//이름, 생년월일, 자기소개, 이메일
+//		String name = request.getParameter("name");
+//		String birthDay = request.getParameter("birthday");
+//		String introduce = request.getParameter("introduce");
+//		String email = request.getParameter("email");
+//		
+//	
+//		MysqlService mysqlService = MysqlService.getInstance();
+//		mysqlService.connect();
+//		
+//		String query = "INSERT INTO `new_user`\r\n"
+//				+ "(`name`, `userId`, `yyyymmdd`, `introduce`, `email`, `createdAt`, `updatedAt`)\r\n"
+//				+ "VALUES\r\n"
+//				+ "('우영우', 'ooh', '20010312', '우영우 기러기 스위스', 'ooh@gmail.com', now(), now());";
+//		
+//		int count = mysqlService.update(query);
+//		
+//		
+//		mysqlService.disConnect();
+//		
+//		// 페이지를 리스트 페이지로 이동한다.
+//		//redirect
+//		
+//		response.sendRedirect("/db/ex02.jsp");
 		
 		
 	
